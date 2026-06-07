@@ -16,7 +16,8 @@ export function getCurrentQuarter() {
 }
 
 export function formatWeekStart(dateStr) {
-  const d = new Date(dateStr + 'T12:00:00Z');
+  const clean = String(dateStr).split('T')[0];
+  const d = new Date(clean + 'T12:00:00Z');
   return d.toLocaleDateString('es-MX', { day: 'numeric', month: 'short', year: 'numeric' });
 }
 
