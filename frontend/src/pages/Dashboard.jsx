@@ -120,9 +120,9 @@ export default function Dashboard() {
       <div className="animate-fade-in">
         <div className="text-center py-20">
           <div className="text-6xl mb-6">◈</div>
-          <h2 className="text-2xl font-semibold text-text-primary mb-3">Bienvenido a Life OS</h2>
+          <h2 className="text-2xl font-semibold text-text-primary mb-3">Bienvenido a Amón</h2>
           <p className="text-text-secondary mb-8 max-w-sm mx-auto">
-            Empieza registrando cómo estás en las 7 dimensiones de tu vida.
+            Consulta tu oráculo. Empieza registrando cómo estás en las 7 dimensiones de tu vida.
           </p>
           <button
             onClick={() => navigate('/checkin')}

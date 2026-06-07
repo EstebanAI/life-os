@@ -22,7 +22,7 @@ export default function Layout() {
       {/* Sidebar */}
       <aside className="hidden md:flex flex-col w-60 border-r border-border bg-surface shrink-0">
         <div className="p-6 border-b border-border">
-          <h1 className="text-lg font-semibold text-text-primary tracking-tight">Life OS</h1>
+          <h1 className="text-lg font-semibold text-text-primary tracking-tight">Amón</h1>
           <p className="text-xs text-text-muted mt-0.5">{user?.username}</p>
         </div>
 
@@ -64,7 +64,7 @@ export default function Layout() {
 
       {/* Mobile top bar */}
       <div className="md:hidden fixed top-0 left-0 right-0 z-50 bg-surface border-b border-border px-4 py-3 flex items-center justify-between">
-        <h1 className="text-base font-semibold text-text-primary">Life OS</h1>
+        <h1 className="text-base font-semibold text-text-primary">Amón</h1>
         <button
           onClick={() => document.getElementById('mobile-nav').classList.toggle('hidden')}
           className="text-text-secondary p-1"

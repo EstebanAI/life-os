@@ -23,5 +23,5 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 initDB()
-  .then(() => app.listen(PORT, () => console.log(`Life OS running on port ${PORT}`)))
+  .then(() => app.listen(PORT, () => console.log(`Amón running on port ${PORT}`)))
   .catch(err => { console.error('DB init failed:', err); process.exit(1); });

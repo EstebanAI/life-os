@@ -34,8 +34,8 @@ export default function Login() {
       <div className="w-full max-w-sm animate-fade-in">
         <div className="text-center mb-10">
           <div className="text-5xl mb-4">◈</div>
-          <h1 className="text-3xl font-semibold text-text-primary tracking-tight">Life OS</h1>
-          <p className="text-text-muted mt-2 text-sm">Sistema de seguimiento personal</p>
+          <h1 className="text-3xl font-semibold text-text-primary tracking-tight">Amón</h1>
+          <p className="text-text-muted mt-2 text-sm">Tu oráculo de desarrollo personal</p>
         </div>
 
         <div className="bg-card border border-border rounded-2xl p-8 glow-card">
