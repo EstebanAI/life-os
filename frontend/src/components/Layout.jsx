@@ -2,10 +2,12 @@ import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 
 const NAV = [
-  { to: '/',          label: 'Dashboard',  icon: '◈' },
-  { to: '/checkin',   label: 'Check-in',   icon: '✦' },
-  { to: '/history',   label: 'Historial',  icon: '◎' },
-  { to: '/quarterly', label: 'Trimestral', icon: '◉' },
+  { to: '/',               label: 'Dashboard',  icon: '◈' },
+  { to: '/today',          label: 'Hoy',        icon: '◐' },
+  { to: '/checkin',        label: 'Check-in',   icon: '✦' },
+  { to: '/habits-config',  label: 'Hábitos',    icon: '≡' },
+  { to: '/history',        label: 'Historial',  icon: '◎' },
+  { to: '/quarterly',      label: 'Trimestral', icon: '◉' },
 ];
 
 export default function Layout() {

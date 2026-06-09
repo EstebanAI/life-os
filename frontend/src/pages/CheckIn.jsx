@@ -18,18 +18,33 @@ export default function CheckIn() {
   const [submitted, setSubmitted] = useState(false);
   const [existingWeek, setExistingWeek] = useState(false);
   const [error, setError] = useState('');
+  const [habitScores, setHabitScores] = useState({});
 
   useEffect(() => {
     async function checkExisting() {
       try {
-        const res = await api.get('/checkins/latest');
-        if (res.data) {
-          const weekStart = res.data.week_start;
-          const monday = getMondayStr(new Date());
-          if (weekStart === monday || weekStart === monday.slice(0, 10)) {
+        const monday = getMondayStr(new Date());
+        const [latestRes, habitRes] = await Promise.allSettled([
+          api.get('/checkins/latest'),
+          api.get(`/habits/week-scores?week_start=${monday}`),
+        ]);
+
+        // Pre-load habit-based scores
+        if (habitRes.status === 'fulfilled' && habitRes.value.data) {
+          setHabitScores(habitRes.value.data);
+          setScores(prev => prev.map(s => {
+            const hs = habitRes.value.data[s.dimension];
+            return hs ? { ...s, score: hs.score } : s;
+          }));
+        }
+
+        // If existing check-in this week, load those values on top
+        if (latestRes.status === 'fulfilled' && latestRes.value.data) {
+          const weekStart = String(latestRes.value.data.week_start).split('T')[0];
+          if (weekStart === monday) {
             setExistingWeek(true);
             const mapped = DIMENSIONS.map(d => {
-              const found = res.data.dimensions.find(x => x.dimension === d.key);
+              const found = latestRes.value.data.dimensions.find(x => x.dimension === d.key);
               return { dimension: d.key, score: found?.score ?? 5, note: found?.note ?? '', action: found?.action ?? '' };
             });
             setScores(mapped);
@@ -238,6 +253,14 @@ export default function CheckIn() {
               <span>10 · Excelente</span>
             </div>
           </div>
+          {habitScores[dim.key] && (
+            <div className="mt-3 flex items-center gap-2 text-xs" style={{ color: dim.color }}>
+              <span>◆</span>
+              <span>
+                Calculado desde hábitos · {habitScores[dim.key].days_completed} de {habitScores[dim.key].total_possible} días completados
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Note */}

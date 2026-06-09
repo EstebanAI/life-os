@@ -12,6 +12,7 @@ app.use(express.json());
 
 app.get('/api/health', (req, res) => res.json({ ok: true }));
 app.use('/api/auth', require('./src/routes/auth'));
+app.use('/api/habits', require('./src/routes/habits'));
 app.use('/api/checkins', require('./src/routes/checkins'));
 app.use('/api/quarterly', require('./src/routes/quarterly'));
 app.use('/api/export', require('./src/routes/export'));

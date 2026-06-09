@@ -5,6 +5,8 @@ import Layout from './components/Layout';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import CheckIn from './pages/CheckIn';
+import Today from './pages/Today';
+import HabitsConfig from './pages/HabitsConfig';
 import History from './pages/History';
 import Quarterly from './pages/Quarterly';
 
@@ -18,6 +20,8 @@ export default function App() {
             <Route element={<Layout />}>
               <Route path="/" element={<Dashboard />} />
               <Route path="/checkin" element={<CheckIn />} />
+              <Route path="/today" element={<Today />} />
+              <Route path="/habits-config" element={<HabitsConfig />} />
               <Route path="/history" element={<History />} />
               <Route path="/quarterly" element={<Quarterly />} />
             </Route>
